@@ -148,6 +148,7 @@ mod tests {
     use crate::types::SignedBridgeAction;
     use fastcrypto::traits::KeyPair;
     use prometheus::Registry;
+    use sui_types::base_types::TransactionDigest;
     use sui_types::crypto::get_key_pair;
 
     use super::*;
@@ -167,7 +168,7 @@ mod tests {
         let committee = BridgeCommittee::new(vec![authority1.clone(), authority2.clone()]).unwrap();
 
         let action: BridgeAction =
-            get_test_sui_to_eth_bridge_action(None, Some(1), Some(1), Some(100));
+            get_test_sui_to_eth_bridge_action(TransactionDigest::random(), 1, 1, 100);
 
         let sig = BridgeAuthoritySignInfo::new(&action, &secret);
 
@@ -186,7 +187,7 @@ mod tests {
         ));
 
         let mismatched_action: BridgeAction =
-            get_test_sui_to_eth_bridge_action(None, Some(2), Some(3), Some(4));
+            get_test_sui_to_eth_bridge_action(TransactionDigest::random(), 2, 3, 4);
         // Verification should fail - mismatched action
         assert!(matches!(
             verify_signed_bridge_action(
@@ -201,7 +202,7 @@ mod tests {
 
         // Signature is invalid (signed over different message), verification should fail
         let action2: BridgeAction =
-            get_test_sui_to_eth_bridge_action(None, Some(3), Some(5), Some(77));
+            get_test_sui_to_eth_bridge_action(TransactionDigest::random(), 3, 5, 77);
 
         let invalid_sig = BridgeAuthoritySignInfo::new(&action2, &secret);
         let signed_action = SignedBridgeAction::new_from_data_and_sig(action.clone(), invalid_sig);

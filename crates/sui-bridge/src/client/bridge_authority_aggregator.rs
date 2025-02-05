@@ -323,12 +323,8 @@ mod tests {
         let sui_tx_event_index = 0;
         let nonce = 0;
         let amount = 1000;
-        let action = get_test_sui_to_eth_bridge_action(
-            Some(sui_tx_digest),
-            Some(sui_tx_event_index),
-            Some(nonce),
-            Some(amount),
-        );
+        let action =
+            get_test_sui_to_eth_bridge_action(sui_tx_digest, sui_tx_event_index, nonce, amount);
 
         // All authorities return signatures
         mock0.add_sui_event_response(
@@ -417,12 +413,8 @@ mod tests {
         let sui_tx_event_index = 0;
         let nonce = 0;
         let amount = 1000;
-        let action = get_test_sui_to_eth_bridge_action(
-            Some(sui_tx_digest),
-            Some(sui_tx_event_index),
-            Some(nonce),
-            Some(amount),
-        );
+        let action =
+            get_test_sui_to_eth_bridge_action(sui_tx_digest, sui_tx_event_index, nonce, amount);
 
         // Only mock authority 2 and 3 to return signatures, such that if BridgeAuthorityAggregator
         // requests to authority 0 and 1 (which should not happen) it will panic.
@@ -549,12 +541,8 @@ mod tests {
         let sui_tx_event_index = 0;
         let nonce = 0;
         let amount = 1000;
-        let action = get_test_sui_to_eth_bridge_action(
-            Some(sui_tx_digest),
-            Some(sui_tx_event_index),
-            Some(nonce),
-            Some(amount),
-        );
+        let action =
+            get_test_sui_to_eth_bridge_action(sui_tx_digest, sui_tx_event_index, nonce, amount);
 
         let sig_0 = sign_action_with_key(&action, &secrets[0]);
         // returns Ok(None)

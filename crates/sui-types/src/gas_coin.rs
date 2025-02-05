@@ -68,7 +68,7 @@ mod checked {
     }
 
     /// Rust version of the Move sui::coin::Coin<Sui::sui::SUI> type
-    #[derive(Clone, Debug, Serialize, Deserialize)]
+    #[derive(Debug, Serialize, Deserialize)]
     pub struct GasCoin(pub Coin);
 
     impl GasCoin {
@@ -112,12 +112,12 @@ mod checked {
             Coin::layout(TypeTag::Struct(Box::new(GAS::type_())))
         }
 
-        #[cfg(any(feature = "test-utils", test))]
+        #[cfg(test)]
         pub fn new_for_testing(value: u64) -> Self {
             Self::new(ObjectID::random(), value)
         }
 
-        #[cfg(any(feature = "test-utils", test))]
+        #[cfg(test)]
         pub fn new_for_testing_with_id(id: ObjectID, value: u64) -> Self {
             Self::new(id, value)
         }
