@@ -1,6 +1,6 @@
 このレポジトリは，Bullsharkコンセンサスプロトコルを使用したSuiをアーカイブし，研究論文を執筆するためにフォークされたものである．
-現在のMysticetiコンセンサスが構築された `consensus/` フォルダを作成した一つ前のコミットを持ってきている．
-Commit: 81b671b46c7bb17e1b5f4af4a0fbaf69308f5833
+現在のMysticetiコンセンサスが構築された `consensus/` フォルダを作成した一つ前のコミットを持ってきている．<br>
+Commit: 81b671b46c7bb17e1b5f4af4a0fbaf69308f5833<br>
 Date: 2023.12.20
 
 <p align="center">
