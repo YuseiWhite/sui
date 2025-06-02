@@ -1,3 +1,8 @@
+このレポジトリは，Bullsharkコンセンサスプロトコルを使用したSuiをアーカイブし，研究論文を執筆するためにフォークされたものである．
+現在のMysticetiコンセンサスが構築された `consensus/` フォルダを作成した一つ前のコミットを持ってきている．
+Commit: 81b671b46c7bb17e1b5f4af4a0fbaf69308f5833
+Date: 2023.12.20
+
 <p align="center">
 <img src="https://github.com/MystenLabs/sui/blob/main/docs/site/static/img/logo.svg" alt="Logo" width="100" height="100">
 </p>
